@@ -1,0 +1,546 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: left;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.quotes {
+  width: 100%;
+  min-height: 400px;
+  display: flex-center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  z-index: 2;
+}
+
+.quotes .box {
+  position: relative;
+  width: 100%;
+  height: 100;
+  min-height: 320px;
+  background: #f2f2f2;
+  overflow: hidden;
+  transition: all 0.5s ease-in;
+  z-index: 2;
+  box-sizing: border-box;
+  padding: 30px;
+  box-shadow: -10px 25px 50px rgba(0, 0, 0, 0.3);
+}
+
+.quotes .box::before {
+  content: '\201C';
+  position: absolute;
+  top: -20px;
+  left: 5px;
+  width: 100%;
+  height: 100%;
+  font-size: 120px;
+  opacity: 0.2;
+  background: transparent;
+  pointer-events: none;
+}
+
+.quotes .box::after {
+  content: '\201D';
+  position: absolute;
+  bottom: -10%;
+  right: 5%;
+  font-size: 120px;
+  opacity: 0.2;
+  background: transparent;
+  filter: invert(1);
+  pointer-events: none;
+}
+
+.quotes .box p {
+  margin: 0;
+  padding: 10px;
+  font-size: 1.2rem;
+}
+
+.quotes .box h2 {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  bottom: 10%;
+  right: 10%;
+  font-size: 1.5rem;
+}
+
+.quotes .box:hover {
+  color: #f2f2f2;
+  box-shadow: 20px 50px 100px rgba(0, 0, 0, 0.5);
+}
+
+.quotes .bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  opacity: 0;
+  transition: all 0.5s ease-in;
+  pointer-events: none;
+  width: 100%;
+  height: 200%;
+  overflow: hidden;
+}
+
+.quotes .box.box1:hover,
+.quotes .box.box1:hover~.bg {
+  opacity: 1;
+  background: #e2a9e5;
+  background: -moz-linear-gradient(-45deg, #e2a9e5 15%, #2b94e5 100%);
+  background: -webkit-linear-gradient(-45deg, #e2a9e5 15%, #2b94e5 100%);
+  background: linear-gradient(135deg, #e2a9e5 15%, #2b94e5 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e2a9e5', endColorstr='#2b94e5', GradientType=1);
+}
+
+.img {
+  background-image: url("https://www.capgemini.com/wp-content/uploads/2019/11/Health-Insurance-Trends-Book_2020_750x300.jpg");
+  width: 100vw;
+  height: 40;
+  /* filter: url(filters.svg#grayscale); Firefox 3.5+ */
+  filter: gray;
+  /* IE5+ */
+  -webkit-filter: grayscale(1);
+  /* Webkit Nightlies & Chrome Canary */
+  -webkit-transition: all .8s ease-in-out;
+}
+
+.img:hover {
+  filter: none;
+  -webkit-filter: grayscale(0);
+  -webkit-transform: scale(1.01);
+}
+
+.wizard-content-left {
+  background-blend-mode: darken;
+  background-color: rgba(0, 0, 0, 0.45);
+  background-image: url("https://economictimes.indiatimes.com/thumb/msid-78072285,width-1200,height-900,resizemode-4,imgsize-99636/health-insurance-getty.jpg?from=mdr");
+  background-position: center center;
+  background-size: cover;
+  height: 100vh;
+  padding: 30px;
+}
+
+.wizard-content-left h1 {
+  color: #ffffff;
+  font-size: 38px;
+  font-weight: 600;
+  padding: 12px 20px;
+  text-align: center;
+}
+
+.form-wizard {
+  color: #888888;
+  padding: 30px;
+}
+
+.form-wizard .wizard-form-radio {
+  display: inline-block;
+  margin-left: 5px;
+  position: relative;
+}
+
+.form-wizard .wizard-form-radio input[type="radio"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  background-color: #dddddd;
+  height: 25px;
+  width: 25px;
+  display: inline-block;
+  vertical-align: middle;
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+}
+
+.form-wizard .wizard-form-radio input[type="radio"]:focus {
+  outline: 0;
+}
+
+.form-wizard .wizard-form-radio input[type="radio"]:checked {
+  background-color: #1694fb;
+}
+
+.form-wizard .wizard-form-radio input[type="radio"]:checked::before {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  background-color: #ffffff;
+  border-radius: 50%;
+  left: 1px;
+  right: 0;
+  margin: 0 auto;
+  top: 8px;
+}
+
+.form-wizard .wizard-form-radio input[type="radio"]:checked::after {
+  content: "";
+  display: inline-block;
+  webkit-animation: click-radio-wave 0.65s;
+  -moz-animation: click-radio-wave 0.65s;
+  animation: click-radio-wave 0.65s;
+  background: #000000;
+  content: '';
+  display: block;
+  position: relative;
+  z-index: 100;
+  border-radius: 50%;
+}
+
+.form-wizard .wizard-form-radio input[type="radio"]~label {
+  padding-left: 10px;
+  cursor: pointer;
+}
+
+.form-wizard .form-wizard-header {
+  text-align: center;
+}
+
+.form-wizard .form-wizard-next-btn,
+.form-wizard .form-wizard-previous-btn,
+.form-wizard .form-wizard-submit {
+  background-color: #6ad654;
+  color: #ffffff;
+  display: inline-block;
+  min-width: 100px;
+  min-width: 120px;
+  padding: 10px;
+  text-align: center;
+}
+
+.form-wizard .form-wizard-next-btn:hover,
+.form-wizard .form-wizard-next-btn:focus,
+.form-wizard .form-wizard-previous-btn:hover,
+.form-wizard .form-wizard-previous-btn:focus,
+.form-wizard .form-wizard-submit:hover,
+.form-wizard .form-wizard-submit:focus {
+  color: #ffffff;
+  opacity: 0.6;
+  text-decoration: none;
+}
+
+.form-wizard .wizard-fieldset {
+  display: none;
+}
+
+.form-wizard .wizard-fieldset.show {
+  display: block;
+}
+
+.form-wizard .wizard-form-error {
+  display: none;
+  background-color: #d70b0b;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  width: 100%;
+}
+
+.form-wizard .form-wizard-previous-btn {
+  background-color: #fb1647;
+}
+
+.form-wizard .form-control {
+  font-weight: 300;
+  height: auto !important;
+  padding: 15px;
+  color: #888888;
+  background-color: #f1f1f1;
+  border: none;
+}
+
+.form-wizard .form-control:focus {
+  box-shadow: none;
+}
+
+.form-wizard .form-group {
+  position: relative;
+  margin: 25px 0;
+}
+
+.form-wizard .wizard-form-text-label {
+  position: absolute;
+  left: 10px;
+  top: 16px;
+  transition: 0.2s linear all;
+}
+
+.form-wizard .focus-input .wizard-form-text-label {
+  color: #54d670;
+  top: -18px;
+  transition: 0.2s linear all;
+  font-size: 12px;
+}
+
+.form-wizard .form-wizard-steps {
+  margin: 30px 0;
+}
+
+.form-wizard .form-wizard-steps li {
+  width: 20%;
+  float: left;
+  position: relative;
+}
+
+.form-wizard .form-wizard-steps li::after {
+  background-color: #f3f3f3;
+  content: "";
+  height: 5px;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  border-bottom: 1px solid #dddddd;
+  border-top: 1px solid #dddddd;
+}
+
+.form-wizard .form-wizard-steps li span {
+  background-color: #dddddd;
+  border-radius: 50%;
+  display: inline-block;
+  height: 40px;
+  line-height: 40px;
+  position: relative;
+  text-align: center;
+  width: 40px;
+  z-index: 1;
+}
+
+.form-wizard .form-wizard-steps li:last-child::after {
+  width: 50%;
+}
+
+.form-wizard .form-wizard-steps li.active span,
+.form-wizard .form-wizard-steps li.activated span {
+  background-color: #d65470;
+  color: #ffffff;
+}
+
+.form-wizard .form-wizard-steps li.active::after,
+.form-wizard .form-wizard-steps li.activated::after {
+  background-color: #d65470;
+  left: 50%;
+  width: 50%;
+  border-color: #d65470;
+}
+
+.form-wizard .form-wizard-steps li.activated::after {
+  width: 100%;
+  border-color: #d65470;
+}
+
+.form-wizard .form-wizard-steps li:last-child::after {
+  left: 0;
+}
+
+.form-wizard .wizard-password-eye {
+  position: absolute;
+  right: 32px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+@keyframes click-radio-wave {
+  0% {
+    width: 25px;
+    height: 25px;
+    opacity: 0.35;
+    position: relative;
+  }
+
+  100% {
+    width: 60px;
+    height: 60px;
+    margin-left: -15px;
+    margin-top: -15px;
+    opacity: 0.0;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .wizard-content-left {
+    height: auto;
+  }
+}
+#design3 {
+  color: #DF744A;
+  font-family: Arial, sans-serif;
+}
+
+#design3 h1 {
+  background-color: #BFD8D2;
+  text-align: center;
+  font-size: 2em;
+  font-weight: 100;
+  padding: 30px;
+  border-bottom: 5px #DCB239 solid;
+  font-family: Helvetica, sans-serif;
+}
+
+#design3 p {
+  background-color: #FEDCD2;
+  padding: 50px;
+}
+.container23 {
+  padding: 10rem 0rem;
+}
+
+h4 {
+  margin: 2rem 0rem 1rem;
+}
+
+.table-image td,
+  th {
+    vertical-align: middle;
+  
+}
+/* body {
+  background-color: #e6ebf4
+} */
+
+.card {
+  border: none;
+  border-radius: 8px;
+  box-shadow: 5px 6px 6px 2px #e9ecef
+}
+
+.heading {
+  font-size: 23px;
+  font-weight: 00
+}
+
+.text {
+  font-size: 16px;
+  font-weight: 500;
+  color: #b1b6bd
+}
+
+.pricing {
+  border: 2px solid #304FFE;
+  background-color: #f2f5ff
+}
+
+.business {
+  font-size: 20px;
+  font-weight: 500
+}
+
+.plan {
+  color: #aba4a4
+}
+
+.dollar {
+  font-size: 16px;
+  color: #6b6b6f
+}
+
+.amount {
+  font-size: 50px;
+  font-weight: 500
+}
+
+.year {
+  font-size: 20px;
+  color: #6b6b6f;
+  margin-top: 19px
+}
+
+.detail {
+  font-size: 22px;
+  font-weight: 500
+}
+
+.cvv {
+  height: 44px;
+  width: 73px;
+  border: 2px solid #eee
+}
+
+.cvv:focus {
+  box-shadow: none;
+  border: 2px solid #304FFE
+}
+
+.email-text {
+  height: 55px;
+  border: 2px solid #eee
+}
+
+.email-text:focus {
+  box-shadow: none;
+  border: 2px solid #304FFE
+}
+
+.payment-button {
+  height: 70px;
+  font-size: 20px
+}
+.hm-gradient {
+  background-image: linear-gradient(to top, #f3e7e9 0%, #e3eeff 99%, #e3eeff 100%);
+}
+
+.navbar .dropdown-menu a:hover {
+  color: #616161 !important;
+}
+
+.darken-grey-text {
+  color: #2E2E2E;
+}
